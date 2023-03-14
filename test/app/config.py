@@ -1,5 +1,5 @@
 import os
-
+from dotenv import load_dotenv
 from starlette.config import Config
 
 
@@ -13,7 +13,7 @@ SQLALCHEMY_DATABASE_URL = f'sqlite:///{root_dir}' + config('DB_NAME', cast=str)
 
 
 http_url = 'https://api-us.faceplusplus.com/facepp/v3/detect'
-key = "eLDJn7Sp7wxI_aLLIDMsWuvoHkntKHxk"
-secret = "tmnqp2i_Gijk_7T9U7nHdwUpTW61pvga"
+key = os.environ.get("KEY")
+secret = os.environ.get("SECRET")
 filepath = r"C:\Users\999\PycharmProjects\test\app\photo\dvoe.jpg"
 attributes="gender,age,ethnicity"
